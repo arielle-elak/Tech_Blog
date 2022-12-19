@@ -1,0 +1,67 @@
+[
+    {
+        "id": 1,
+        "author": "Oprah!",
+        "content": "This kind of makes sense I guess.",
+        "date_created": 1667682473737,
+        "author_id": 2,
+        "post_id": 1
+    },
+    {
+        "id": 1,
+        "author": "Leoz Maxwell Jilliumz",
+        "content": "ABSOLUTE TRASH!!!! WHY WOULD YOU EVEN SAY THAATS!?!",
+        "date_created": 1667682473737,
+        "author_id": 1,
+        "post_id": 2
+    },
+    {
+        "id": 1,
+        "author": "Davoin Shower-Handel",
+        "content": "This kind of makes sense I guess.",
+        "date_created": 1667682473737,
+        "author_id": 3,
+        "post_id": 3
+    },
+    {
+        "id": 1,
+        "author": "Oprah!",
+        "content": "This kind of makes sense I guess.",
+        "date_created": 1667682473737,
+        "author_id": 1,
+        "post_id": 4
+    },
+    {
+        "id": 1,
+        "author": "X-Wing @Aliciousness",
+        "content": "MEH",
+        "date_created": 1667682473737,
+        "author_id": 4,
+        "post_id": 5
+    },
+    {
+        "id": 1,
+        "author": "X-Wing @Aliciousness",
+        "content": "MEH",
+        "date_created": 1667682473737,
+        "author_id": 4,
+        "post_id": 6
+    },
+    {
+        "id": 1,
+        "author": "X-Wing @Aliciousness",
+        "content": "MEH",
+        "date_created": 1667682473737,
+        "author_id": 4,
+        "post_id": 7
+    },
+    {
+        "id": 1,
+        "author": "Scoish Velociraptor Maloish",
+        "content": "TRY HARDR. This is laaaaame...",
+        "date_created": 1667682473737,
+        "author_id": 5,
+        "post_id": 8
+    }
+
+]
