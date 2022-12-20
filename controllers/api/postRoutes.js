@@ -43,22 +43,49 @@ router.get("/", async (req, res) => {
 
 // Get One Post (when a user clicks on a post from home page or dashboard)
 router.get("/:id", async (req, res) => {
-    try {
-        // Find One Post
-        const singlePost = await Post.findOne({
-            where: {
-            id: req.params.id,
-            },
-        });
+  try {
+    // Find One Post
+    const singlePost = await Post.findOne({
+      where: {
+        id: req.params.id,
+      },
+    });
 
-        // Confirm if successfull
-        res.status(200).json(singlePost);
-    } catch (err) {
-        // Log and send the error if not
-        console.log(err);
-        res.status(400).json(err);
-    }
-  });
+    // Confirm if successfull
+    res.status(200).json(singlePost);
+  } catch (err) {
+    // Log and send the error if not
+    console.log(err);
+    res.status(400).json(err);
+  }
+});
+
+// Delete A Post
+router.delete("/:id", async (req, res) => {
+  try {
+    // To avoid floating comments, must delete all associated comments to that post_id
+    const deletedComments = await Comment.destroy({
+      where: {
+        post_id: parseInt(req.params.id),
+      },
+    });
+
+    // Then, delete the post_id
+    const deletedPost = Post.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    // Confirm if successfull (comments first, then post)
+    res.status(200).json(deletedComments);
+    res.status(200).json(deletedPost);
+  } catch (err) {
+    // Log and send the error if not
+    console.log(err);
+    res.status(400).json(err);
+  }
+});
 
 
 module.exports = router;
