@@ -22,35 +22,49 @@ router.post("/", async (req, res) => {
 // User Sign In - Find User data by email, request Comparison of email and password validity
 router.post("/login", async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
 
-    // If user email is not found
-    if (!userData) {
+    // Find any users that have the supplied email
+    const dbUserData = await User.findOne({
+      where: {
+        email: req.body.email,
+      },
+    });
+
+    // If there are no users of that email, throw an error
+    if (!dbUserData) {
       res
         .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
+        .json({ message: "Incorrect email. Please try again!" });
       return;
     }
 
-    const validPassword = await userData.checkPassword(req.body.password);
+    // Assuming the email was valid, check the password
+    const validPassword = await dbUserData.checkPassword(req.body.password);
 
-    // If the hashed password does not match
+    // Reject bad passwords
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
+        .json({ message: "Incorrect email or password. Please try again!" });
       return;
     }
 
-    // Otherwise, save this session to the session table with appropriate user id and status
+    // Start a session for the user
     req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
+      req.session.loggedIn = true;
+      req.session.userID = dbUserData.id;
+      req.session.username = dbUserData.username;
+      req.session.userEmail = req.body.email;
 
-      res.json({ user: userData, message: "You are now logged in!" });
+      // Send confirmatory info
+      res
+        .status(200)
+        .json({ user: dbUserData, message: "You are now logged in!" });
     });
   } catch (err) {
-    res.status(400).json(err);
+    // Log and send the error
+    console.log(err);
+    res.status(500).json(err);
   }
 });
 

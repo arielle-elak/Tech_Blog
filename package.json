@@ -4,7 +4,7 @@
   "description": "A sample tech blog.",
   "main": "server.js",
   "scripts": {
-    "tailwindcss": "npx tailwindcss -i ./public/css/style.css -o ./public/css/styletw.css --watch",
+    "tailwindcss": "npx tailwindcss -i ./public/assets/css/style.css -o ./public/assets/css/styletw.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "start:dev": "nodemon server",
