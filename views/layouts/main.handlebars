@@ -1,0 +1,38 @@
+{{!-- {{Main page layout for all sectors of site }} --}}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tech Blog</title>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+
+    <body>
+        <div class="">
+            <header class="">
+                <h1>
+                    <span role="img" aria-label="money">💸</span>
+                    <a href="/">Tech Blog</a>
+                </h1>
+                {{!-- Navigation Bar--}}
+               {{ nav }}
+            </header>
+            <main class="">
+                <!-- Render the sub layouts -->
+                {{{ body }}}
+            </main>
+            <footer>
+
+            </footer>
+        </div>
+
+        <!-- Render script for logged in users only -->
+        {{#if logged_in}}
+            <script src="/js/logout.js"></script>
+        {{/if}}
+    </body>
+
+</html>
