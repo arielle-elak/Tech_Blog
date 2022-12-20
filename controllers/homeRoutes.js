@@ -1,82 +1,89 @@
-const router = require('express').Router();
-const { Project, User } = require('../models');
-const withAuth = require('../utils/auth');
+const router = require("express").Router();
+const { User, Post, Comment } = require("../models/index");
+const withAuth = require("../utils/auth");
+// const sequelize = require('sequelize')
 
-router.get('/', async (req, res) => {
-  try {
-    // Get all projects and JOIN with user data
-    const projectData = await Project.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
+// Homepage
+router.get("/", async (req, res) => {
+  // Get all posts from all users, including associated users
+  const allPosts = await Post.findAll({
+    include: [{ model: User }],
+    order: [["id", "DESC"]],
+  });
 
-    // Serialize data so the template can read it
-    const projects = projectData.map((project) => project.get({ plain: true }));
+  // Strip out the extra sequelize content
+  const posts = allPosts.map((row) => row.get({ plain: true }));
 
-    // Pass serialized data and session flag into template
-    res.render('homepage', {
-      projects,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
+  // Render the page with data needed for the handlebars template
+  res.render("homepage", {
+    session: req.session,
+    posts
+  });
 });
 
-router.get('/project/:id', async (req, res) => {
-  try {
-    const projectData = await Project.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
+// Dashboard for posting new content + seeing stats
+router.get("/dashboard", withAuth, async (req, res) => {
+  // Get all posts from the logged in user
+  const userPosts = await Post.findAll({
+    where: {
+      user_id: req.session.userID,
+    },
+    include: [{ model: User }],
+  });
 
-    const project = projectData.get({ plain: true });
+  // Strip out extra sequelize content
+  const posts = userPosts.map((row) => row.get({ plain: true }));
 
-    res.render('project', {
-      ...project,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
+  // Diagnostic logs of what's actually going to be rendered
+  console.log("posts: ", posts);
+  console.log("session: ", req.session);
+
+  // Render the page with data needed for the handlebars template
+  res.render("dashboard", {
+    session: req.session,
+    posts,
+  });
 });
 
-// Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
-  try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
-    });
+// Login/signup page
+router.get("/login", async (req, res) => {
+  // Diagnostic logs of what's actually going to be rendered
+  console.log("session: ", req.session);
 
-    const user = userData.get({ plain: true });
-
-    res.render('profile', {
-      ...user,
-      logged_in: true
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
+  // Render the page with data needed for the handlebars template
+  res.render("login", {
+    session: req.session,
+  });
 });
 
-router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    res.redirect('/profile');
+// Single post page
+router.get("/post/:id", async (req, res) => {
+  // Get specified post based on the req params
+  const singlePost = await Post.findOne({
+    where: {
+      id: req.params.id,
+    },
+    include: [{ model: User }, { model: Comment }],
+  });
+
+  // If no such post exists, go back to the main page
+  if (singlePost == null) {
+    res.redirect("/");
     return;
   }
 
-  res.render('login');
+  // Strip out extra sequelize content
+  const post = singlePost.get({ plain: true });
+
+  // Diagnostic logs of what's actually going to be rendered
+  console.log("post: ", post);
+  console.log("session: ", req.session);
+
+  // Render the page with data needed for the handlebars template
+  res.render("post", {
+    session: req.session,
+    post,
+  });
 });
 
 module.exports = router;
