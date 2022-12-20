@@ -1,7 +1,7 @@
 {
-  "name": "code-share",
+  "name": "tech-blog",
   "version": "1.0.0",
-  "description": "A 'social' site for sharing frontend components, ranked by other developers!",
+  "description": "A sample tech blog.",
   "main": "server.js",
   "scripts": {
     "tailwindcss": "npx tailwindcss -i ./public/css/style.css -o ./public/css/styletw.css --watch",
@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/arielle-elak/Tech_Blog#readme",
   "dependencies": {
-    "animejs": "^3.2.1",
     "bcrypt": "^5.1.0",
     "connect-session-sequelize": "^7.1.5",
     "dotenv": "^16.0.3",
