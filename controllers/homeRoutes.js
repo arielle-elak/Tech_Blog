@@ -56,6 +56,13 @@ router.get("/login", async (req, res) => {
   });
 });
 
+// Logged out page
+router.get("/logout", async (req, res) => {
+  // Render the page with data needed for the handlebars template
+  res.render("loggedout")
+});
+
+
 // Single post page
 router.get("/post/:id", async (req, res) => {
   // Get specified post based on the req params
