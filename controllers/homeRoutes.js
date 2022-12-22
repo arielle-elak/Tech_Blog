@@ -56,7 +56,17 @@ router.get("/login", async (req, res) => {
   });
 });
 
+// Logged out GET request - just needs to satisfy the call
+router.get("/logout", async (req, res) => {
 
+   // Once the session has been destroyed, forward the page back to the home screen
+  if (res.ok) {
+    console.log(res.statusText);
+    // Render the page with data needed for the handlebars template
+  } else {
+    console.log(res.statusText);
+  }
+});
 
 
 // Single post page
