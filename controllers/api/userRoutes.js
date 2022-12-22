@@ -80,4 +80,15 @@ router.post("/logout", (req, res) => {
   }
 });
 
+// Logged out page
+router.get("/logout", async (req, res) => {
+
+  // Once the session has been destroyed, forward the page back to the home screen
+ if (res.ok) {
+   // Render the page with data needed for the handlebars template
+ } else {
+   console.log(res.statusText);
+ }
+});
+
 module.exports = router;
