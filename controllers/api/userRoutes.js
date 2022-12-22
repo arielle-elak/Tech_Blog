@@ -69,14 +69,13 @@ router.post("/login", async (req, res) => {
 });
 
 // User Sign Out - if user is currently in logged_in state, delete the session entry
-// TODO: Find out why when /logout requested, tries to GET not POST
-router.get("/logout", (req, res) => {
+
+router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
     });
   } else {
-    // console.log("Can't find the logout!")
     res.status(404).end();
   }
 });
