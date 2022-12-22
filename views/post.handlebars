@@ -1,4 +1,22 @@
 <div class="p-10">
-    <h5 class="mb-6 text-2xl font-bold tracking-tight text-gray-900">{{post.title}}</h5>
+    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{{post.title}}</h5>
+    <h6 class="mb-6 text-lg font-normal tracking-tight text-gray-900">by {{post.user.username}}</h6>
     <p>{{post.content}}</p>
+</div>
+
+<div>
+    <hr class="mx-10 my-5">
+<h6 class="px-10 pb-2 mb-2 text-lg font-bold tracking-tight text-gray-900">Comments for this post:</h6>
+    <!-- Loop over each object in the comments array -->
+    <div>
+        {{#each post.Comments as |comment|}}
+            <div
+                class="m-6 p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-500 dark:border-gray-700">
+                <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">{{comment.content}}</h5>
+                <p class="mb-3 text-sm font-normal text-gray-700 dark:text-gray-200">by {{comment.author}} on
+                    {{format_date comment.date_created}}</p>
+            </div>
+        {{/each}}
+    </div>
+
 </div>
