@@ -11,10 +11,10 @@ function textSummary(text) {
   if (!text) {
     return;
   }
-  if (text.length < 50) {
+  if (text.length < 100) {
     return text;
   } else {
-    return text.slice(0, 50) + "...";
+    return text.slice(0, 100) + "...";
   }
 }
 
