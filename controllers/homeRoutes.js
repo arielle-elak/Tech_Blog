@@ -59,7 +59,13 @@ router.get("/login", async (req, res) => {
 // Logged out page
 router.get("/logout", async (req, res) => {
   // Render the page with data needed for the handlebars template
-  res.render("loggedout")
+  res.render("loggedout");
+   // Once the session has been destroyed, forward the page back to the home screen
+   if (res.ok) {
+    document.location.replace('/');
+  } else {
+    console.log(res.statusText);
+  }
 });
 
 
