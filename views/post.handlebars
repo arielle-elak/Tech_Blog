@@ -6,6 +6,7 @@
 
 <!--Comments Form Start-->
 <div class="p-10">
+    {{#if session.loggedIn}}
         <h2 class="font-bold mb-3 text-lg text-white">Comment on this post:</h2>
         <!--Form Start-->
             <form class="comment-form">
@@ -22,7 +23,12 @@
                     </button>
             </form>
             <!--Form End-->
+                {{else}}
+                    <div class="mt-10" id="comment-form">
+                        <h2 class="text-white text-xl">Please log in to comment on this submission!</h2>
     </div>
+    </div>
+    {{/if}}
 
 
 <div class="p-10">
