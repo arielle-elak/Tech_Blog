@@ -5,15 +5,15 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
   // Get post information from page elements
-  const name = document.querySelector("#post-title").value.trim();
+  const title = document.querySelector("#post-title").value.trim();
   const content = document.querySelector("#post-content").value.trim();
 
   // If the user filled in all the required fields...
-  if (name && content) {
+  if (title && content) {
     // Call the API route to make the post
-    const response = await fetch(`/api/post/create`, {
+    const response = await fetch(`/api/posts/create`, {
       method: "POST",
-      body: JSON.stringify({ name, content }),
+      body: JSON.stringify({ title, content }),
       headers: {
         "Content-Type": "application/json",
       },
