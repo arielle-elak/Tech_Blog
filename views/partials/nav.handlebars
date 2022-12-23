@@ -9,7 +9,7 @@
         <span class="font-semibold text-xl tracking-tight">Tech Blog</span>
     </div>
     <div class="block md:hidden">
-        <button
+        <button onClick="document.getElementById('hamMenu').classList.toggle('hidden')"
             class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-200 hover:text-white hover:border-white">
             <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <title>Menu</title>
@@ -17,6 +17,7 @@
             </svg>
         </button>
     </div>
+    <!--Normal Menu-->
     <div class="w-full block flex-grow md:flex md:items-center md:w-auto">
         <div class="text-sm hidden md:block md:flex-grow">
             <a href="/" class="block mt-4 md:inline-block md:mt-0 text-teal-100 hover:text-white mr-4">
@@ -25,19 +26,30 @@
             <a href="/dashboard" class="block mt-4 md:inline-block md:mt-0 text-teal-100 hover:text-white mr-4">
                 Dashboard
             </a>
-
         </div>
         <div>
+
+    <!--Hamburger Menu-->
+    <div id="hamMenu" class="hidden w-full block flex-grow">
+        <div class="text-sm ">
+            <a href="/" class="mt-4 block text-teal-100 hover:text-white mr-4">
+                Home
+            </a>
+            <a href="/dashboard" class="mt-4 block text-teal-100 hover:text-white mr-4">
+                Dashboard
+            </a>
+        </div>
+    <div>
             <!--Conditional buttons to see if the session data state is logged in or out-->
             {{#if session.loggedIn}}
             <p class="text-white text-sm text-center inline-block">{{session.username}}</p>
                 <button id="logout" type="button"
-                    class="hidden md:inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4"><a
+                    class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4"><a
                         href="/logout">Log
                         Out</a></button>
             {{else}}
                 <button id="login" type="button"
-                    class="hidden md:inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4"><a
+                    class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4"><a
                         href="/login">Log
                         In</a></button>
                 {{/if}}
