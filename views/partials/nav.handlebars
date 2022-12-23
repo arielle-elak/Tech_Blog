@@ -29,6 +29,21 @@
                 Dashboard
             </a>
         </div>
+         <div class="hidden md:block">
+            <!--Conditional buttons to see if the session data state is logged in or out-->
+            {{#if session.loggedIn}}
+            <p class="text-white text-sm text-center inline-block">{{session.username}}</p>
+                <button id="logout" type="button"
+                    class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4"><a
+                        href="/logout">Log
+                        Out</a></button>
+            {{else}}
+                <button id="login" type="button"
+                    class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4"><a
+                        href="/login">Log
+                        In</a></button>
+                {{/if}}
+        </div>
         <div>
 
     <!--Hamburger Menu-->
