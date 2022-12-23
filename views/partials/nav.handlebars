@@ -1,5 +1,5 @@
 <!-- Main Navigation Menu -->
-<nav class="flex items-center justify-between flex-wrap bg-teal-700 px-6 py-4">
+<nav class="flex items-center justify-between flex-wrap bg-teal-700 p-6">
     <div class="flex items-center flex-shrink-0 text-white mr-6">
         <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54"
             xmlns="http://www.w3.org/2000/svg">
@@ -8,7 +8,7 @@
         </svg>
         <span class="font-semibold text-xl tracking-tight">Tech Blog</span>
     </div>
-    <div class="block lg:hidden">
+    <div class="block md:hidden">
         <button
             class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-200 hover:text-white hover:border-white">
             <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -17,12 +17,12 @@
             </svg>
         </button>
     </div>
-    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-        <div class="text-sm lg:flex-grow">
-            <a href="/" class="block mt-4 lg:inline-block lg:mt-0 text-teal-100 hover:text-white mr-4">
+    <div class="w-full block flex-grow md:flex md:items-center md:w-auto">
+        <div class="text-sm hidden md:block md:flex-grow">
+            <a href="/" class="block mt-4 md:inline-block md:mt-0 text-teal-100 hover:text-white mr-4">
                 Home
             </a>
-            <a href="/dashboard" class="block mt-4 lg:inline-block lg:mt-0 text-teal-100 hover:text-white mr-4">
+            <a href="/dashboard" class="block mt-4 md:inline-block md:mt-0 text-teal-100 hover:text-white mr-4">
                 Dashboard
             </a>
 
@@ -32,7 +32,7 @@
             {{#if session.loggedIn}}
             <p class="text-white text-sm text-center inline-block">{{session.username}}</p>
                 <button id="logout" type="button"
-                    class="mx-5 first-line:inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"><a
+                    class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"><a
                         href="/logout">Log
                         Out</a></button>
             {{else}}
