@@ -6,7 +6,7 @@
 
 <!--Comments Form Start-->
 <div class="p-10">
-        <h2 class="mb-3 text-lg text-white">Comment on this post:</h2>
+        <h2 class="font-bold mb-3 text-lg text-white">Comment on this post:</h2>
         <!--Form Start-->
             <form class="comment-form">
                 <div>
@@ -26,12 +26,12 @@
 
 
 <div class="p-10">
-<h6 class="text-lg font-bold text-gray-200">Comments for this post:</h6>
+<h6 class="text-lg text-gray-200">Comments for this post:</h6>
     <!-- Loop over each object in the comments array -->
     <div>
         {{#each post.Comments as |comment|}}
             <div
-                class="p-3 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-700 dark:border-gray-700">
+                class="my-4 p-3 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-700 dark:border-gray-700">
                 <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">{{comment.content}}</h5>
                 <p class="mb-3 text-sm font-normal text-gray-700 dark:text-gray-200">by {{comment.author}} on
                     {{format_date comment.date_created}}</p>

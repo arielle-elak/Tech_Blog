@@ -24,7 +24,8 @@ const commentSubmit = async (event) => {
 
     if (response.ok) {
       console.log("Comment added");
-      success_flag = 1;
+        success_flag = 1;
+        location.reload();
     } else {
       alert("Failed to add comment");
     }
