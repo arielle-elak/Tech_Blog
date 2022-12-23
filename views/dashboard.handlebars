@@ -1,76 +1,15 @@
 {{!-- User Dashboard --}}
 <div class="m-10">
-<h2 class="text-2xl my-4 text-white">
+    <h2 class="text-2xl my-4 text-white">
         Welcome, {{session.username}}!
     </h2>
-<!--Lightbox new post window-->
-<div class="w-full bg-gray-800 h-screen" x-data="{ 'showModal': false }"
-    @keydown.escape="showModal = false" x-cloak>
+
     <div>
-        <button type="submit"
-            class="flex-none px-3 py-2 text-sm font-medium text-center text-white bg-teal-600 rounded-lg hover:bg-teal-900 focus:ring-4 focus:outline-none focus:ring-blue-300"
-            @click="showModal = true">Create
-            a Post
-        </button>
-
-        <section>
-            <!--Overlay-->
-            <div class="overflow-auto" style="background-color: rgba(0,0,0,0.5)" x-show="showModal"
-                :class="{ 'absolute inset-0 z-10 flex items-center justify-center': showModal }">
-                <!--Dialog-->
-                <div class="bg-gray-900 w-11/12 md:max-w-md mx-auto rounded shadow-lg py-4 text-left px-6"
-                    x-show="showModal" @click.away="showModal = false" x-transition:enter="ease-out duration-300"
-                    x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
-                    x-transition:leave="ease-in duration-300" x-transition:leave-start="opacity-100 scale-100"
-                    x-transition:leave-end="opacity-0 scale-90">
-
-                    <!--Title-->
-                    <div class="flex justify-between items-center pb-3">
-                        <p class="text-white text-2xl font-bold">Create a Post</p>
-                    </div>
-
-                <!-- content -->
-                <form class="newPost-form">
-                    <div>
-                        <div class="mb-4">
-                            <label for="post-title"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
-                            <input type="text" id="post-title"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="My Post" required>
-                        </div>
-                        <div class="mb-4">
-                            <label for="post-content" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
-                            <textarea id="post-content" rows="6"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Write anything you would like..."></textarea>
-                        </div>
-                        <button type="submit" id="form-submit"
-                            class="border-2 border-teal-500 px-4 p-3 rounded-lg text-white hover:bg-teal-500">Submit
-                        </button>
-                </form>
-
-                <!--Footer-->
-                <div class="flex justify-end pt-2">
-                    <button class="border-2 border-red-400 modal-close px-4 p-3 rounded-lg text-white hover:bg-red-400"
-                        @click="showModal = false">Close</button>
-                </div>
-
-
-                </div>
-                <!--/Dialog -->
-                </div><!-- /Overlay -->
-
-                </section>
-
-    </div>
-<!--Generate user's posts or prompt to create-->
-    <div class="mt-5">
-        <hr class="my-5">
+        <div>
             <h3 class="text-lg font-bold text-white">Your Posts:</h3>
             {{#if posts.length}}
                 {{#each posts as |post|}}
-                    <div class="p-6 m-3 border shadow-md border-gray-700">
+                    <div class="p-6 border shadow-md border-gray-700">
                         <a href="/post/{{post.id}}">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{post.title}}</h5>
                         </a>
@@ -93,7 +32,31 @@
             <h4 class="text-white font-normal">No posts to show yet.</h4>
             <p class="text-white font-normal">Use the form to create your first post.</p>
             {{/if}}
+        </div>
+
+        <div>
+            <h2 class="mb-3 text-lg text-white">Create a Post</h2>
+            <form class="newPost-form">
+                <div>
+                    <div class="mb-4">
+                        <label for="post-title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
+                        <input type="text" id="post-title"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="My Post" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="post-content" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
+                        <textarea id="post-content" rows="4"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Write anything you would like..."></textarea>
+                    </div>
+
+                    <button type="submit"
+                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-teal-600 rounded-lg hover:bg-teal-900 focus:ring-4 focus:outline-none focus:ring-blue-300">Submit
+                        </button>
+            </form>
 
         </div>
-</div>
+
+    </div>
 </div>
