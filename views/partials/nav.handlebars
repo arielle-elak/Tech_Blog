@@ -1,5 +1,5 @@
 <!-- Main Navigation Menu -->
-<nav class="flex items-center justify-between flex-wrap bg-teal-700 p-6">
+<nav class="flex items-center justify-between flex-wrap bg-teal-700 p-2 md:p-4 ">
     <div class="flex items-center flex-shrink-0 text-white mr-6">
         <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54"
             xmlns="http://www.w3.org/2000/svg">
@@ -32,12 +32,12 @@
             {{#if session.loggedIn}}
             <p class="text-white text-sm text-center inline-block">{{session.username}}</p>
                 <button id="logout" type="button"
-                    class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"><a
+                    class="hidden md:inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4"><a
                         href="/logout">Log
                         Out</a></button>
             {{else}}
                 <button id="login" type="button"
-                    class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"><a
+                    class="hidden md:inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4"><a
                         href="/login">Log
                         In</a></button>
                 {{/if}}
