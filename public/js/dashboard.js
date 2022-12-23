@@ -1,17 +1,11 @@
-/**
- * Scripts for Dashboard page behavior
- */
-
 const newFormHandler = async (event) => {
   event.preventDefault();
-  // Get post information from page elements
+
   const title = document.querySelector("#post-title").value.trim();
   const content = document.querySelector("#post-content").value.trim();
 
-  // If the user filled in all the required fields...
   if (title && content) {
-    // Call the API route to make the post
-    const response = await fetch(`/api/posts/create`, {
+    const response = await fetch(`/api/posts`, {
       method: "POST",
       body: JSON.stringify({ title, content }),
       headers: {
@@ -19,13 +13,15 @@ const newFormHandler = async (event) => {
       },
     });
 
-    // Take action based on the server response
     if (response.ok) {
-      // Reload the page to show the new post
       document.location.replace("/dashboard");
     } else {
-      // Indicate the error
-      alert("Failed to create submission");
+      alert("Failed to create post");
+      console.log(title, content);
     }
   }
 };
+
+document
+  .querySelector(".newPost-form")
+  .addEventListener("submit", newFormHandler);

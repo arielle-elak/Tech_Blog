@@ -4,11 +4,11 @@ const withAuth = require("../../utils/auth");
 const { Post, Comment } = require("../../models");
 
 // Create a New Post
-router.post("/create", withAuth, async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
     // Get the info needed for the new post - use the user_id that is currently signed in through session
     const postBody = {
-      title: req.body.name,
+      title: req.body.title,
       content: req.body.content,
       date_created: Date.now(),
       user_id: req.session.userID,
