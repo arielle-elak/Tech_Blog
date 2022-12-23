@@ -17,7 +17,7 @@
                             placeholder="Write your comment here..."></textarea>
                     </div>
 
-                    <button type="submit"
+                    <button id="comment-submit" type="submit"
                         data-post="{{post.id}}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-teal-600 rounded-lg hover:bg-teal-900 focus:ring-4 focus:outline-none focus:ring-blue-300">Submit
                     </button>
             </form>
@@ -40,3 +40,7 @@
     </div>
 
 </div>
+
+{{#if session.loggedIn}}
+    <script src="/js/comment.js"></script>
+{{/if}}
