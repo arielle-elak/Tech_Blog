@@ -23,10 +23,10 @@ function dashSummary(text) {
   if (!text) {
     return;
   }
-  if (text.length < 50) {
+  if (text.length < 100) {
     return text;
   } else {
-    return text.slice(0, 150) + "...";
+    return text.slice(0, 200) + "...";
   }
 }
 

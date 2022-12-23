@@ -4,17 +4,41 @@
         Welcome, {{session.username}}!
     </h2>
 
-    <div class="flex ...">
-        <div class="flex-auto w-64">
+    <div>
+        <h2 class="mb-3 text-lg text-white">Create a Post</h2>
+        <form class="newPost-form">
+            <div>
+                <div class="mb-4">
+                    <label for="post-title"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
+                    <input type="text" id="post-title"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="My Post" required>
+                </div>
+                <div class="mb-4">
+                    <label for="post-content" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
+                    <textarea id="post-content" rows="6"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Write anything you would like..."></textarea>
+                </div>
+
+                <button type="submit"
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-teal-600 rounded-lg hover:bg-teal-900 focus:ring-4 focus:outline-none focus:ring-blue-300">Submit
+                </button>
+        </form>
+
+    </div>
+
+    <div>
             <h3 class="text-lg font-bold text-white">Your Posts:</h3>
             {{#if posts.length}}
                 {{#each posts as |post|}}
-                    <div class="p-10 border shadow-md border-gray-700">
+                    <div class="p-6 m-3 border shadow-md border-gray-700">
                         <a href="/post/{{post.id}}">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{post.title}}</h5>
                         </a>
-                        <p class="mb-3 font-normal text-gray-200">{{textSummary post.content}}</p>
-                        <p class="mb-3 font-normal text-gray-400">Created by {{post.user.username}} on
+                        <p class="mb-3 font-normal text-gray-200">{{dashSummary post.content}}</p>
+                        <p class="mb-3 font-normal text-gray-400">Written on
                             {{format_date post.date_created}}</p>
                         <a href="/post/{{post.id}}"
                             class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-teal-600 rounded-lg hover:bg-teal-900 focus:ring-4 focus:outline-none focus:ring-blue-300">
@@ -34,9 +58,4 @@
             {{/if}}
 
         </div>
-        <div class="flex-auto w-32">
-
-        </div>
-
-    </div>
 </div>
