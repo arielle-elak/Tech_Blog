@@ -6,9 +6,11 @@ const editFormHandler = async (event) => {
   const content = document.querySelector("#post-content").value.trim();
   const postID = document
     .querySelector("#edit-submit")
-    .getAttribute("data-post");
+        .getAttribute("data-post");
 
-  if (title && content) {
+    console.log(title + content);
+
+    if (title && content) {
     const response = await fetch(`/api/posts/${postID}`, {
       method: "PUT",
       body: JSON.stringify({ title, content }),
@@ -16,6 +18,7 @@ const editFormHandler = async (event) => {
         "Content-Type": "application/json",
       },
     });
+      console.log(response);
 
     if (response.ok) {
       document.location.replace("/dashboard");
