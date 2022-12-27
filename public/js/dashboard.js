@@ -1,3 +1,4 @@
+// Handler for when new post is created on dashboard
 const newFormHandler = async (event) => {
   event.preventDefault();
 
@@ -22,10 +23,32 @@ const newFormHandler = async (event) => {
   }
 };
 
+// Handler for deleting a post from the dashboard
+const deleteButtonHandler = async (event) => {
+  // Ensure the event is being triggered by the correct button with the data-id
+  if (event.target.hasAttribute("data-id")) {
+    const id = event.target.getAttribute("data-id");
+    console.log(id);
+
+    // Use the API call for deleting a post
+    const response = await fetch(`/api/posts/${id}`, {
+      method: "DELETE",
+    });
+
+    if (response.ok) {
+      // Refresh page with updated list of posts
+      document.location.replace("/dashboard");
+    } else {
+      // If there's an error, say it
+      alert("Failed to delete post");
+    }
+  }
+};
+
 document
   .querySelector(".newPost-form")
   .addEventListener("submit", newFormHandler);
 
-  document
+document
   .querySelector(".delButton")
   .addEventListener("click", deleteButtonHandler);

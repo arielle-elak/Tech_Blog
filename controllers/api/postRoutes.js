@@ -78,7 +78,6 @@ router.delete("/:id", async (req, res) => {
     });
 
     // Confirm if successfull (comments first, then post)
-    res.status(200).json(deletedComments);
     res.status(200).json(deletedPost);
   } catch (err) {
     // Log and send the error if not
