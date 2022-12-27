@@ -51,6 +51,12 @@ const deleteButtonHandler = async (event) => {
 
 };
 
+// If the user clicks the edit button in the dashboard
+
+const editButtonHandler = async (event) => {
+  
+}
+
 document
   .querySelector(".newPost-form")
   .addEventListener("submit", newFormHandler);
@@ -58,3 +64,5 @@ document
 document
   .querySelector(".delButton")
   .addEventListener("click", deleteButtonHandler);
+
+document.querySelector(".editButton").addEventListener("click", editButtonHandler);
