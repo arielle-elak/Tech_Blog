@@ -100,6 +100,37 @@ router.get("/post/:id", async (req, res) => {
   });
 });
 
+// Edit post page
+router.get("/edit/post/:id", async (req, res) => {
+  // Get specified post based on the req params
+  const singlePost = await Post.findOne({
+    where: {
+      id: req.params.id,
+    },
+    include: [{ model: User }, { model: Comment }],
+  });
+
+  // If no such post exists, go back to the main page
+  if (singlePost == null) {
+    res.redirect("/");
+    return;
+  }
+
+  // Strip out extra sequelize content
+  const post = singlePost.get({ plain: true });
+
+  // Diagnostic logs of what's actually going to be rendered
+  console.log("post: ", post);
+  console.log("session: ", req.session);
+
+  // Render the page with data needed for the handlebars template
+  res.render("edit", {
+    session: req.session,
+    post,
+  });
+});
+
+
 
 
 

@@ -63,7 +63,7 @@ const editButtonHandler = async (event) => {
 
      if (response.ok) {
       // Refresh page with updated list of posts
-       document.location.replace("/edit");
+       document.location.replace(`/edit/post/${id}`);
 
     } else {
       // If there's an error, say it
