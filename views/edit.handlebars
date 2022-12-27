@@ -1,7 +1,7 @@
 <div class="m-10">
 <h2 class="mb-3 text-lg text-white">Create a Post</h2>
         <!--Form Start-->
-            <form class="newPost-form">
+            <form class="edit-form">
                 <div>
                     <div class="mb-4">
                         <label for="post-title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
@@ -16,9 +16,12 @@
                             >{{post.content}}</textarea>
                     </div>
 
-                    <button type="submit"
+                    <button id="edit-submit" data-post="{{post.id}}" type="submit"
                         class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-teal-600 rounded-lg hover:bg-teal-900 focus:ring-4 focus:outline-none focus:ring-blue-300">Submit
                     </button>
                     </form>
                     <!--Form End-->
 </div>
+
+{{!--Edit Post Functionality--}}
+<script src="/js/edit.js"></script>

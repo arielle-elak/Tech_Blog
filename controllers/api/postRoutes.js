@@ -61,6 +61,34 @@ router.get("/:id", async (req, res) => {
 });
 
 
+// Update A Post
+router.put("/:id", async (req, res) => {
+  try {
+
+    // Create body before it gets updated for logging purposes
+    const newBody = {
+      title: req.body.title,
+      content: req.body.content
+    };
+
+    console.log("Updating post:", newBody);
+
+    // Update the user
+    const updatedPost = await User.update(newBody, {
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    // Send confirmatory information that the update was successful
+    res.status(200).json(updatedPost);
+  } catch (err) {
+    // Send errors
+    console.log(err);
+    res.status(400).json(err);
+  }
+});
+
 
 // Delete A Post
 router.delete("/:id", async (req, res) => {
