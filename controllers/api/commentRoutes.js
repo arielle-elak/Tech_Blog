@@ -26,4 +26,22 @@ router.post("/create", async (req, res) => {
   }
 });
 
+// Delete a Comment
+router.delete("/:id", async (req, res) => {
+  try {
+    const deletedComment = Comment.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    // Confirm if successfull (comments first, then post)
+    res.status(200).json(deletedComment);
+  } catch (err) {
+    // Log and send the error if not
+    console.log(err);
+    res.status(400).json(err);
+  }
+});
+
 module.exports = router;
