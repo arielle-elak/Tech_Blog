@@ -68,13 +68,13 @@ router.put("/:id", async (req, res) => {
     // Create body before it gets updated for logging purposes
     const newBody = {
       title: req.body.title,
-      content: req.body.content
+      content: req.body.content,
     };
 
     console.log("Updating post:", newBody);
 
-    // Update the user
-    const updatedPost = await User.update(newBody, {
+    // Update the post
+    const updatedPost = await Post.update(newBody, {
       where: {
         id: req.params.id,
       },
