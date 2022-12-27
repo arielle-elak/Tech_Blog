@@ -1,26 +1,24 @@
 <div class="m-10">
-    <h2 class="mb-3 text-lg text-white">Edit Your Post</h2>
+<h2 class="mb-3 text-lg text-white">Create a Post</h2>
         <!--Form Start-->
-        <form class="newPost-form">
-            <div>
-                <div class="mb-4">
-                    <label for="post-title"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
-                    <input type="text" id="post-title"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        content="{{post.title}}">
-                </div>
-                <div class="mb-4">
-                    <label for="post-content"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
-                    <textarea id="post-content" rows="4"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        content="{{post.content}}"></textarea>
-                </div>
+            <form class="newPost-form">
+                <div>
+                    <div class="mb-4">
+                        <label for="post-title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
+                        <input type="text" id="post-title" value="{{post.title}}"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            >
+                    </div>
+                    <div class="mb-4">
+                        <label for="post-content" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
+                        <textarea id="post-content" rows="4"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            >{{post.content}}</textarea>
+                    </div>
 
-                <button type="submit"
-                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-teal-600 rounded-lg hover:bg-teal-900 focus:ring-4 focus:outline-none focus:ring-blue-300">Submit
-                </button>
-        </form>
-        <!--Form End-->
+                    <button type="submit"
+                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-teal-600 rounded-lg hover:bg-teal-900 focus:ring-4 focus:outline-none focus:ring-blue-300">Submit
+                    </button>
+                    </form>
+                    <!--Form End-->
 </div>
