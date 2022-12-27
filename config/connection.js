@@ -9,9 +9,9 @@ const sequelize = process.env.JAWSDB_URL
       process.env.DB_USER,
       process.env.DB_PASSWORD,
       {
-        host: process.env.HOST,
+        // Disabled for heroku Deploy || host: "localhost",
         dialect: "mysql",
-        port: process.env.PORT,
+        port: process.env.PORT || 3000,
       }
     );
 console.log("Established sequelize config...");
