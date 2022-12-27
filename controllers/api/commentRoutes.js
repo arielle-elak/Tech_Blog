@@ -26,7 +26,7 @@ router.post("/create", async (req, res) => {
   }
 });
 
-// Delete a Comment
+// TODO: Delete a Comment
 router.delete("/:id", async (req, res) => {
   try {
     const deletedComment = Comment.destroy({
