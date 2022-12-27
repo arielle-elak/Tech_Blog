@@ -53,9 +53,10 @@
                                     clip-rule="evenodd"></path>
                             </svg>
                         </a>
-                        <div class="ml-10 cursor-pointer inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-400 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                        <div data-id="{{post.id}}"
+                            class="delButton ml-10 cursor-pointer inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-400 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
                             Delete
-                    </div>
+                        </div>
                 {{/each}}
             {{else}}
             <h4 class="text-white font-normal">No posts to show yet.</h4>
