@@ -54,9 +54,12 @@ const deleteButtonHandler = async (event) => {
 // If the user clicks the edit button in the dashboard
 
 const editButtonHandler = async (event) => {
-  
-}
+  if (event.target.hasAttribute("data-id")) {
+    const id = event.target.getAttribute("data-id");
 
+    document.location.replace("/edit");
+  }
+}
 document
   .querySelector(".newPost-form")
   .addEventListener("submit", newFormHandler);

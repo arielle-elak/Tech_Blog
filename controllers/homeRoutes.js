@@ -99,4 +99,16 @@ router.get("/post/:id", async (req, res) => {
   });
 });
 
+
+// Edit Post Page
+router.get("/edit", async (req, res) => {
+  // Diagnostic logs of what's actually going to be rendered
+  console.log("session: ", req.session);
+
+  // Render the page with data needed for the handlebars template
+  res.render("edit", {
+    session: req.session,
+  });
+});
+
 module.exports = router;
