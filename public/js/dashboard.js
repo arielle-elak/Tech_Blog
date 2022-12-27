@@ -52,12 +52,23 @@ const deleteButtonHandler = async (event) => {
 };
 
 // If the user clicks the edit button in the dashboard
-
 const editButtonHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
 
-    document.location.replace("/edit");
+     // Use the API call for deleting a post
+     const response = await fetch(`/api/post/${id}`, {
+      method: "GET",
+     });
+
+     if (response.ok) {
+      // Refresh page with updated list of posts
+       document.location.replace("/edit");
+
+    } else {
+      // If there's an error, say it
+      alert("Failed to open page");
+    }
   }
 }
 document

@@ -69,6 +69,7 @@ router.get("/logout", async (req, res) => {
 });
 
 
+
 // Single post page
 router.get("/post/:id", async (req, res) => {
   // Get specified post based on the req params
@@ -100,15 +101,6 @@ router.get("/post/:id", async (req, res) => {
 });
 
 
-// Edit Post Page
-router.get("/edit", async (req, res) => {
-  // Diagnostic logs of what's actually going to be rendered
-  console.log("session: ", req.session);
 
-  // Render the page with data needed for the handlebars template
-  res.render("edit", {
-    session: req.session,
-  });
-});
 
 module.exports = router;

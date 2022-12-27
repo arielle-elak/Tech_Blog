@@ -1,5 +1,5 @@
-<div>
-    <h2 class="mb-3 text-lg text-white" Edit Your Post</h2>
+<div class="m-10">
+    <h2 class="mb-3 text-lg text-white">Edit Your Post</h2>
         <!--Form Start-->
         <form class="newPost-form">
             <div>
@@ -8,14 +8,14 @@
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
                     <input type="text" id="post-title"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="My Post" required>
+                        content="{{post.title}}">
                 </div>
                 <div class="mb-4">
                     <label for="post-content"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
                     <textarea id="post-content" rows="4"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Write anything you would like..."></textarea>
+                        content="{{post.content}}"></textarea>
                 </div>
 
                 <button type="submit"
