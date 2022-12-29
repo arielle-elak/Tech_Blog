@@ -9,9 +9,9 @@ const sequelize = process.env.JAWSDB_URL
       process.env.DB_USER,
       process.env.DB_PASSWORD,
       {
-        host: "127.0.0.1",
-        dialect: "mysql",
-        port: process.env.PORT || 3000,
+        host: 'localhost',
+        dialect: 'mysql',
+        port: process.env.PORT || 3306,
       }
     );
 console.log("Established sequelize config...");
