@@ -26,9 +26,15 @@ This project is entirely deployed on Heroku. To access the app, simply click on 
 [Tech Blog on Heroku](https://arielle-elak-tech-blog.herokuapp.com/)
 
 
-
 ## Usage
+Log in or create an account from the Log In button
+![image](https://user-images.githubusercontent.com/73449635/209909670-d33a3b95-997e-4669-a5a9-9b92ffe5fae6.png)
 
+While signed in, you can create new posts, edit or delete existing ones from your dashboard.
+![image](https://user-images.githubusercontent.com/73449635/209909817-6afb5dff-4f7d-4610-9f44-c1d57b508d9a.png)
+
+Also while signed in, you may comment on other posts users have added.
+![image](https://user-images.githubusercontent.com/73449635/209909863-4338ffd7-9f3b-49a4-a21d-29a9c8fccbea.png)
 
 
 ## Contributing
@@ -45,4 +51,3 @@ This GitHub repository utilizes the Unlicense License.
 
 ## Questions and Contact
 Have questions about this project? You can email me directly at [arielle.elak@gmail.com](mailto:arielle.elak@gmail.com).
-
